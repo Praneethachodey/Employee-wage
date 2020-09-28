@@ -1,11 +1,20 @@
 public class employee{
 	public static final int IS_FULL_TIME=1;
-	public static final int EMP_RATE_PER_HOUR=20;
 	public static final int IS_PART_TIME=2;
-	public static final int NUM_OF_WORKING_DAYS=20;
-	public static final int MAX_HRS_IN_A_MONTH=100;
 
-public static int calEmpWage(String company, int empRate, int numOfDays,int maxHrs)
+	int empRate,numOfDays,maxHrs;
+	String company;
+
+public employee(String company,int empRate,int numOfDays,int maxHrs)
+{
+	this.empRate=empRate;
+	this.numOfDays=numOfDays;
+	this.maxHrs=maxHrs;
+	this.company=company;
+}
+
+
+public int calEmpWage()
 {	int total=0;
  	int totalEmpHrs=0;
         int totalWorkingDays=0;
@@ -36,7 +45,7 @@ public static int calEmpWage(String company, int empRate, int numOfDays,int maxH
        		total+= empwage;
 		System.out.println("employee wage is " + empwage);
 	}
-	System.out.println("total employee wage for the company " + company + " is : " + total);
+	System.out.println("total employee wage for the company " + this.company + " is : " + total);
 return total;
 }
 
@@ -44,7 +53,8 @@ return total;
 public static void main(String args[])
 {
 	System.out.println("Welcome to employee wage problem");
-	calEmpWage("Dmart",20,2,10);
+	employee dmart = new employee("Dmart",20,2,10);
+	dmart.calEmpWage();
 	
 	
 }
